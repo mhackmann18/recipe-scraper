@@ -8,6 +8,13 @@ from recipe_scrapers import scrape_me
 
 app = Flask(__name__)
 
+print('DJSDJSDFJKSDFJ')
+
+
+@app.route('/')
+def greeting():
+    return 'Welcome to the recipe scraper'
+
 
 @app.route('/recipe-data')
 def get_recipe_data():
