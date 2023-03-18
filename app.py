@@ -1,14 +1,12 @@
-""" placeholder text """
+"""Web app for scraping recipe data"""
 
+from flask import Flask, request
+from recipe_scrapers import scrape_me
 import recipe_scrapers._exceptions
 import validators
 import requests.exceptions
-from flask import Flask, request
-from recipe_scrapers import scrape_me
 
 app = Flask(__name__)
-
-print('DJSDJSDFJKSDFJ')
 
 
 @app.route('/')
@@ -37,8 +35,8 @@ def get_recipe_data():
     except requests.exceptions.MissingSchema:
         print('Invalid url')
         return 'Please provide a valid url'
-    except recipe_scrapers._exceptions.NoSchemaFoundInWildMode:  # Maybe fix this
-        print('D')
+    except recipe_scrapers._exceptions.NoSchemaFoundInWildMode:  
+        print('Failed to scrape the provided url')
         return 'Unable to obtain recipe data from the provided url. Please try a different url'
     except Exception as ex:
         print(type(ex))
