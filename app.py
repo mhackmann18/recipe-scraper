@@ -11,7 +11,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def greeting():
-    return 'Welcome to the recipe scraper'
+    return 'Welcome to recipe scraper.\n\nStart by making \
+	    a get request to /recipe-data?url=recipe-url.'
 
 
 @app.route('/recipe-data')
@@ -48,4 +49,4 @@ def get_recipe_data():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='localhost', port=8000)
